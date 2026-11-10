@@ -24,30 +24,39 @@ The program starts by creating a list:
 a = [1, 2, 3]
 ```
 
-Then another variable points to the same list:
+Then two more variables point to the same list, one at a time:
 
 ```python
 b = a
+c = a
 ```
 
-Now both `a` and `b` reference the same object, so the reference count increases.
+Now `a`, `b`, and `c` all reference the same object, so the reference count goes up each time.
 
-Then I remove `b`:
+Then I remove the extra references:
 
 ```python
+del c
 del b
 ```
 
-The reference count decreases because there is one less reference pointing to the list.
+Each `del` removes one reference, so the count goes back down. The list is still alive at the end because `a` still points to it.
 
-One thing I found interesting is that `sys.getrefcount()` temporarily adds another reference while checking the object. Because of this, the value it prints can be one higher than expected.
+One thing I found interesting is that `sys.getrefcount()` temporarily adds another reference while checking the object. Because of this, the value it prints is one higher than the number of variables pointing to the object. My output was:
+
+```text
+After creating a: 2
+After b = a: 3
+After c = a: 4
+After deleting c: 3
+After deleting b: 2
+```
 
 The code for this experiment is located in:
 
 ```text
 experiments/reference_count.py
 ```
-
 ## Experiment 2: Reference Cycles
 
 My second experiment explores a weakness of reference counting.
