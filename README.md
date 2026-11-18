@@ -21,7 +21,7 @@ My first experiment uses Python's `sys.getrefcount()` function to see how the re
 The program starts by creating a list:
 
 ```python
-a = [1, 2, 3]
+a = [10, 20, 30]
 ```
 
 Then two more variables point to the same list, one at a time:
@@ -42,7 +42,7 @@ del b
 
 Each `del` removes one reference, so the count goes back down. The list is still alive at the end because `a` still points to it.
 
-One thing I found interesting is that `sys.getrefcount()` temporarily adds another reference while checking the object. Because of this, the value it prints is one higher than the number of variables pointing to the object. My output was:
+One thing I found interesting is that `sys.getrefcount()` temporarily adds another reference while checking the object. Because sys.getrefcount() temporarily adds a reference while checking the object, the values in this experiment are one higher than the references I created. My output was:
 
 ```text
 After creating a: 2
@@ -145,7 +145,7 @@ cpython-reference-counting/
 
 The `experiments` folder contains the Python programs I created while exploring the topic.
 
-The `presentation` folder will contain my presentation materials.
+The `presentation` folder contain my presentation materials.
 
 The `resources.md` file contains the sources and documentation I used while learning about reference counting and garbage collection.
 
