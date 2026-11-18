@@ -1,10 +1,8 @@
 import gc
 import weakref
 
-
 class Node:
     pass
-
 
 gc.disable()
 
