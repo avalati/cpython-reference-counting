@@ -37,5 +37,6 @@ I used this after getting a very large value from:
 
 ```python
 sys.getrefcount(10)
+```
 
 This helped me understand why some objects can have extremely large reference counts. In Python 3.12, CPython can treat certain objects as immortal, meaning their displayed reference counts do not behave like normal object reference counts.
