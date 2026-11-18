@@ -145,10 +145,11 @@ cpython-reference-counting/
 
 The `experiments` folder contains the Python programs I created while exploring the topic.
 
-The `presentation` folder contain my presentation materials.
+The `presentation` folder contains my presentation materials.
 
 The `resources.md` file contains the sources and documentation I used while learning about reference counting and garbage collection.
 
 ## Resources
 
 The resources used for this project are listed in `resources.md`.
+
